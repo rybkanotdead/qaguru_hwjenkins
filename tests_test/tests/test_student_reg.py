@@ -1,5 +1,5 @@
 import allure
-from demoqa_tests.model.pages.registration_page import RegistrationPage
+from tests_test.model.pages.registration_page import RegistrationPage
 
 
 @allure.tag("allure test #1")
