@@ -1,6 +1,6 @@
 import allure
 from tests_test.model.pages.registration_page import RegistrationPage
-
+import os
 
 @allure.tag("allure test #1")
 @allure.label("owner", "IK")
