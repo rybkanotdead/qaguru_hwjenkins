@@ -20,7 +20,7 @@ def test_registers_user():
      .fill_subject('Hindi')
      .fill_subject('Maths')
      .select_hobby('Sports')
-     .set_upload_picture('image/images.png')
+     .set_upload_picture(os.path.abspath('tests_test/image/images.png'))
      .fill_current_address('my_curr_address')
      .fill_state('NCR')
      .fill_city('Delhi')
