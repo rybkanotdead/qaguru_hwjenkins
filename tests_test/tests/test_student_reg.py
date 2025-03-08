@@ -20,10 +20,10 @@ def test_registers_user():
      .fill_subject('Hindi')
      .fill_subject('Maths')
      .select_hobby('Sports')
-     .set_upload_picture('image/python.png')
+     .set_upload_picture('image/images.png')
      .fill_current_address('my_curr_address')
      .fill_state('NCR')
      .fill_city('Delhi')
      .click_submit_button()
      .should_have_registered('my_firstName', 'my_secondName', 'my_email@mail.com', 'Male', '8999123456', '21 June,2013',
-                             'Hindi, Maths', 'Sports', 'python.png', 'my_curr_address', 'NCR', 'Delhi'))
+                             'Hindi, Maths', 'Sports', 'images.png', 'my_curr_address', 'NCR', 'Delhi'))
