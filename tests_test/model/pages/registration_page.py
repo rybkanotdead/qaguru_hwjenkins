@@ -2,6 +2,7 @@ import time
 
 import allure, os
 from selene import browser, be, have
+from selenium.webdriver.common.by import By
 
 
 class RegistrationPage:
@@ -73,8 +74,10 @@ class RegistrationPage:
         return self
 
     @allure.step("Выбор хобби")
-    def select_hobby(self, value):
-        self.hobbies.element_by(have.text(value)).click()
+    def select_hobby(self, *values):
+        for value in values:
+            self.browser.element(
+                (By.XPATH, f'//label[starts-with(@for, "hobbies-checkbox") and contains(text(), "{value}")]')).click()
         return self
 
     @allure.step("Загрузка картинки")

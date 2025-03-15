@@ -19,7 +19,7 @@ def test_registers_user():
      .fill_date_of_birth(1999, 8, 26)
      .fill_subject('Russian')
      .fill_subject('Maths')
-     .select_hobby('Music')
+     .select_hobby('Sport')
      .set_upload_picture('image/images.jpg')
      .fill_current_address('Abaya26')
      .fill_state('NCR')
