@@ -25,5 +25,5 @@ def test_registers_user():
      .fill_state('NCR')
      .fill_city('Delhi')
      .click_submit_button()
-     .should_have_registered('my_firstName', 'my_secondName', 'my_email@mail.com', 'Male', '8800555353', '26 September 1999',
+     .should_have_registered('my_firstName', 'my_secondName', 'my_email@mail.com', 'Male', '8800555353', '26 September, 1999',
                              'Maths', 'Sports', 'images.jpg', 'Abaya26', 'NCR', 'Delhi'))
