@@ -75,9 +75,7 @@ class RegistrationPage:
 
     @allure.step("Выбор хобби")
     def select_hobby(self, value):
-        hobby_element = self.hobbies.element_by(have.text(value))
-        hobby_element.perform(lambda e: browser.execute_script("arguments[0].scrollIntoView();", e))
-        hobby_element.click()
+        self.hobbies.element_by(have.text(value)).click()
         return self
 
     @allure.step("Загрузка картинки")
