@@ -76,9 +76,7 @@ class RegistrationPage:
     @allure.step("Выбор хобби")
     def select_hobby(self, *values):
         for value in values:
-            browser.element(
-                (By.XPATH, f'//label[starts-with(@for, "hobbies-checkbox") and contains(text(), "{value}")]')).click()
-        return self
+            self.hobbies.element_by(have.text(value)).click()
 
     @allure.step("Загрузка картинки")
     def set_upload_picture(self, value):
