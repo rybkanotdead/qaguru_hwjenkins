@@ -69,7 +69,8 @@ class RegistrationPage:
 
     @allure.step("Выбор предмета")
     def fill_subject(self, value):
-        self.subjects_input.type(value).press_enter()
+        self.subjects_input.type(value)  # Вводим предмет
+        browser.all('.subjects-auto-complete__option').element_by(have.text(value)).click()  # Выбираем нужный
         return self
 
     @allure.step("Выбор хобби")
