@@ -17,7 +17,6 @@ def test_registers_user():
      .remove_banner()
      .fill_mobile_number('88005553535')
      .fill_date_of_birth(1999, 8, 26)
-     .fill_subject('Russian')
      .fill_subject('Maths')
      .select_hobby('Sport')
      .set_upload_picture('image/images.jpg')
@@ -26,4 +25,4 @@ def test_registers_user():
      .fill_city('Delhi')
      .click_submit_button()
      .should_have_registered('my_firstName', 'my_secondName', 'my_email@mail.com', 'Male', '88005553535', '26 Aug 1999',
-                             'Russian, Maths', 'Sports', 'images.jpg', 'Abaya26', 'NCR', 'Delhi'))
+                             'Maths', 'Sports', 'images.jpg', 'Abaya26', 'NCR', 'Delhi'))
