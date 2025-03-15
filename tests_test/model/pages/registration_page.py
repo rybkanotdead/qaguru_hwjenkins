@@ -76,7 +76,7 @@ class RegistrationPage:
     @allure.step("Выбор хобби")
     def select_hobby(self, *values):
         for value in values:
-            self.browser.element(
+            browser.element(
                 (By.XPATH, f'//label[starts-with(@for, "hobbies-checkbox") and contains(text(), "{value}")]')).click()
         return self
 
