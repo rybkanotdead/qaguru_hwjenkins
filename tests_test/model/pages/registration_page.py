@@ -69,9 +69,8 @@ class RegistrationPage:
 
     @allure.step("Выбор предмета")
     def fill_subject(self, value):
-        self.subjects_input.type(value)
-        time.sleep(1)  # Даем время для появления списка
-        self.subjects_input.press_enter()
+        element = self.hobbies.element_by(have.text(value))
+        browser.driver.execute_script("arguments[0].click();", element.get_actual_webelement())
         return self
 
     @allure.step("Выбор хобби")
