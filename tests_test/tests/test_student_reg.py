@@ -1,5 +1,6 @@
 import allure
 from selene import have
+import re
 
 from tests_test.model.pages.registration_page import RegistrationPage
 import os
@@ -26,5 +27,5 @@ def test_registers_user():
      .fill_state('NCR')
      .fill_city('Delhi')
      .click_submit_button()
-     .should_have_registered('my_firstName', 'my_secondName', 'my_email@mail.com', 'Male', '8800555353', have.text_matching(r'26 September,?\s?1999'),
+     .should_have_registered('my_firstName', 'my_secondName', 'my_email@mail.com', 'Male', '8800555353', have.text(re.compile(r'26 September,?\s?1999')),
                              'Maths', 'Sports', 'images.jpg', 'Abaya26', 'NCR', 'Delhi'))
