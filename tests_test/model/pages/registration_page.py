@@ -1,3 +1,5 @@
+import time
+
 import allure, os
 from selene import browser, be, have
 
@@ -67,7 +69,9 @@ class RegistrationPage:
 
     @allure.step("Выбор предмета")
     def fill_subject(self, value):
-        self.subjects_input.type(value).press_enter()
+        self.subjects_input.type(value)
+        time.sleep(1)  # Даем время для появления списка
+        self.subjects_input.press_enter()
         return self
 
     @allure.step("Выбор хобби")
