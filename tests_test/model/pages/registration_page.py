@@ -17,7 +17,7 @@ class RegistrationPage:
         self.month = browser.element('.react-datepicker__month-select')
 
         self.subjects_input = browser.element('#subjectsInput')
-        self.hobbies = browser.all(".custom-control-label")
+        self.hobbies = browser.all("#hobbiesWrapper .custom-control-label")
         self.upload_picture = browser.element('#uploadPicture')
         self.current_address = browser.element('#currentAddress')
 
