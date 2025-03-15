@@ -69,9 +69,7 @@ class RegistrationPage:
 
     @allure.step("Выбор предмета")
     def fill_subject(self, value):
-        element = self.hobbies.element_by(have.text(value))
-        browser.driver.execute_script("arguments[0].click();",
-                                      element.locate())  # Используем .locate() вместо get_actual_webelement()
+        self.subjects_input.type(value).press_enter()
         return self
 
     @allure.step("Выбор хобби")
