@@ -77,7 +77,8 @@ class RegistrationPage:
 
     @allure.step("Загрузка картинки")
     def set_upload_picture(self, value):
-        self.upload_picture.type(os.path.abspath(value))
+        #self.upload_picture.type(os.path.abspath(value))
+        self.upload_picture.type(os.path.abspath(os.path.join(os.path.dirname(__file__), f"../image/{value}")))
         return self
 
     @allure.step("Ввод адреса проживания")

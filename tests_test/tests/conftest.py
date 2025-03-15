@@ -1,5 +1,4 @@
-import os
-import pytest
+import pytest, os
 from selene import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -7,7 +6,7 @@ from tests_test.utils import attach
 from dotenv import load_dotenv
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="session", autouse=True)
 def setup_env():
     load_dotenv()
 
@@ -17,11 +16,9 @@ def setup_browser():
     browser.config.base_url = 'https://demoqa.com'
     driver_options = webdriver.ChromeOptions()
     driver_options.page_load_strategy = 'eager'
-    browser.config.driver_options = driver_options  # чтоб тест выполнялся когда сайт продолжается грузиться , но html загрузился
+    browser.config.driver_options = driver_options
     browser.config.window_width = 1920
     browser.config.window_height = 1080
-    # driver_options = webdriver.ChromeOptions()   #настройка чтоб не открывать браузер , надо для этого 8 , 10 строчку кода
-    # driver_options.add_argument('--headless')
 
     options = Options()
     selenoid_capabilities = {
@@ -34,8 +31,13 @@ def setup_browser():
     }
 
     options.capabilities.update(selenoid_capabilities)
+
+    login = os.getenv('LOGIN')
+    password = os.getenv('PASSWORD')
+    url = os.getenv('URL')
+
     browser.config.driver = webdriver.Remote(
-        command_executor=f"https://user1:1234@selenoid.autotests.cloud/wd/hub",
+        command_executor=f"https://{login}:{password}@{url}/wd/hub",
         options=options)
 
     yield browser
