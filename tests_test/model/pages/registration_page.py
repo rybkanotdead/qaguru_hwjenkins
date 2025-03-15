@@ -74,9 +74,7 @@ class RegistrationPage:
 
     @allure.step("Выбор хобби")
     def select_hobby(self, value):
-        hobby_element = self.hobbies.element_by(have.text(value))
-        hobby_element.should(be.clickable)  # Ожидаем, пока элемент станет кликабельным
-        hobby_element.click()
+        self.hobbies.element_by(have.text(value)).click()
         return self
 
     @allure.step("Загрузка картинки")
