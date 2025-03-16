@@ -32,7 +32,8 @@ class RegistrationPage:
 
     @allure.step("Закрыть баннер (если есть)")
     def remove_banner(self):
-        browser.all('iframe').execute_script('for (let el of elements) el.remove()')
+        for iframe in browser.all('iframe'):
+            iframe.execute_script('element.remove()')  # Удаляем каждый iframe
         return self
 
     @allure.step("Ввод имени")
