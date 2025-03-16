@@ -1,7 +1,7 @@
 import time
 
 import allure, os
-from selene import browser, be, have
+from selene import browser, be, have, command
 from selenium.webdriver.common.by import By
 
 
@@ -76,7 +76,9 @@ class RegistrationPage:
 
     @allure.step("Выбор хобби")
     def select_hobby(self, value):
-        self.hobbies.element_by(have.text(value)).click()
+        hobby = self.hobbies.element_by(have.text(value))
+        hobby.perform(command.js.scroll_into_view)  # Скроллим до элемента
+        hobby.click()  # Кликаем после прокрутки
         return self
 
     @allure.step("Загрузка картинки")
