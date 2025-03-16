@@ -32,8 +32,9 @@ class RegistrationPage:
 
     @allure.step("Закрыть баннер (если есть)")
     def remove_banner(self):
-        browser.all('div[id^="google_ads"], div[class*="adsbygoogle"]').execute_script(
-            'for (let el of elements) el.remove()')
+        browser.execute_script("""
+            document.querySelectorAll('iframe[src*="google"]').forEach(e => e.style.display = 'none');
+        """)
         return self
 
     @allure.step("Ввод имени")
